@@ -49,6 +49,7 @@ const DataTableNotification = () => {
          setLoadingSubmit(false);
       }, 1500);
       return () => clearTimeout(timer);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, []);
 
    const handleDelete = async () => {

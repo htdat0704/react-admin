@@ -44,6 +44,7 @@ const DatatableUser = () => {
          setLoading(false);
       }, 1000);
       return () => clearTimeout(timer);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, []);
 
    useEffect(() => {

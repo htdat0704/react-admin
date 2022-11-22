@@ -47,6 +47,7 @@ const FormLogin = () => {
       if (isAuthenticated) {
          navigate("/", { replace: true });
       }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [isAuthenticated]);
 
    return (

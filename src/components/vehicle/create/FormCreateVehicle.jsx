@@ -56,6 +56,7 @@ const FormCreateVehicle = () => {
          setLoading(false);
       }, 1000);
       return () => clearTimeout(timer);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, []);
 
    const createProductImagesChange = e => {
@@ -117,6 +118,7 @@ const FormCreateVehicle = () => {
          ...formCreate,
          facility: facilities[0] && facilities[0]._id,
       });
+      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [getAllfacilities]);
 
    return (

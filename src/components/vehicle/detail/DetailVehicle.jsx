@@ -16,7 +16,6 @@ import {
 const DetailVehicle = () => {
    const { vehicleId } = useParams();
    const [isLoading, setLoading] = useState(true);
-   const [index, setIndex] = useState(0);
    const {
       vehicleState: { vehicle, using, lastOrders, totalUse, features },
       getDetailVehicle,
@@ -24,11 +23,6 @@ const DetailVehicle = () => {
       getLastOrders,
       getAllFeatures,
    } = useContext(VehicleContext);
-
-   const handleChange = (cur, prev) => {
-      setIndex(cur);
-      console.log(cur, prev);
-   };
 
    useEffect(() => {
       const timer = setTimeout(async () => {
@@ -39,6 +33,7 @@ const DetailVehicle = () => {
          setLoading(false);
       }, 1000);
       return () => clearTimeout(timer);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, []);
 
    const handleChangeYear = async e => {

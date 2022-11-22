@@ -1,5 +1,3 @@
-import React from "react";
-
 const columnsNotification = () => {
    return [
       { field: "id", headerName: "ID", hide: true },

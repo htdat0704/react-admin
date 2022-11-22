@@ -9,7 +9,7 @@ import "./formUpdateFacility.scss";
 const FormUpdateFacility = () => {
    const { facilityId } = useParams();
    const {
-      facilityState: { facility, error, message },
+      facilityState: { facility, error },
       getDetailFacility,
       updateFacility,
       setNullMessageAndError,
@@ -29,6 +29,7 @@ const FormUpdateFacility = () => {
          setLoading(false);
       }, 1500);
       return () => clearTimeout(timer);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, []);
 
    useEffect(() => {
@@ -36,6 +37,7 @@ const FormUpdateFacility = () => {
          name: facility.name ?? "",
          location: facility.location ?? "",
       });
+      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [getDetailFacility]);
 
    const handleChangeForm = e => {

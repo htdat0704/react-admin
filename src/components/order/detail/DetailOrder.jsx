@@ -1,6 +1,6 @@
 import React, { useEffect, useContext, useState } from "react";
 import { OrderContext } from "../../../context/order/OrderContext";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import LoadingModel from "../../loading/LoadingModel";
 import FeedIcon from "@mui/icons-material/Feed";
 import AppRegistrationIcon from "@mui/icons-material/AppRegistration";
@@ -39,6 +39,7 @@ const DetailOrder = () => {
          setLoading(false);
       }, 1000);
       return () => clearTimeout(timer);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, []);
 
    useEffect(() => {
@@ -55,6 +56,7 @@ const DetailOrder = () => {
               )
             : 0,
       });
+      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [getDetailOrder]);
 
    const handleChangeForm = e => {

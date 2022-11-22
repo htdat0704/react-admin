@@ -31,6 +31,7 @@ const FormResetPassword = () => {
          setLoadingSubmit(false);
       }, 1000);
       return () => clearTimeout(timer);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, []);
 
    const resetPasswordSubmit = async e => {

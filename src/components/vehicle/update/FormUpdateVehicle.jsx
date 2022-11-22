@@ -61,6 +61,7 @@ const FormUpdateVehicle = () => {
          setLoading(false);
       }, 1500);
       return () => clearTimeout(timer);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, []);
 
    useEffect(() => {
@@ -92,6 +93,7 @@ const FormUpdateVehicle = () => {
               )
             : [],
       );
+      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [getDetailVehicle]);
 
    const updateVehicleImagesChange = e => {

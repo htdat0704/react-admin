@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import { FacilityContext } from "../../../context/facility/FacilityContext";
 import { useNavigate } from "react-router-dom";
 import LoadingModel from "../../loading/LoadingModel";
-import DatePicker, { registerLocale, setDefaultLocale } from "react-datepicker";
+import DatePicker, { registerLocale } from "react-datepicker";
 import vi from "date-fns/locale/vi";
 import CustomizedSnackbarsError from "../../alert/AlertError";
 

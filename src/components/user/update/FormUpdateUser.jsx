@@ -46,6 +46,7 @@ const FormUpdateUser = () => {
          setLoading(false);
       }, 1500);
       return () => clearTimeout(timer);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, []);
 
    useEffect(() => {
@@ -68,6 +69,7 @@ const FormUpdateUser = () => {
               )
             : "",
       );
+      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [getDetailUser]);
 
    const updateProfileDataChange = e => {
