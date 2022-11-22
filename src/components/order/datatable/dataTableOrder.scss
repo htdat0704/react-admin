@@ -1,0 +1,117 @@
+.datatableOrder {
+   height: 800px;
+   padding: 20px;
+
+   .location {
+      padding: 8px;
+      border-radius: 4px;
+      background-color: #86aff181;
+      text-decoration: none;
+   }
+
+   .garage {
+      padding: 8px;
+      border-radius: 4px;
+      background-color: rgba(211, 206, 206, 0.637);
+      text-decoration: none;
+   }
+
+   .status,
+   .type {
+      padding: 8px;
+      border-radius: 4px;
+
+      &.Success,
+      &.CASH,
+      &.Paid {
+         color: green;
+         background-color: rgba(0, 128, 0, 0.151);
+      }
+
+      &.Processing {
+         color: goldenrod;
+         background-color: rgba(189, 189, 3, 0.103);
+      }
+
+      &.Cancel,
+      &.Unpaid {
+         color: crimson;
+         background-color: rgba(189, 3, 3, 0.103);
+      }
+
+      &.Confirm {
+         color: rgb(27, 27, 245);
+         background-color: rgba(0, 9, 128, 0.151);
+      }
+
+      &.Going {
+         color: coral;
+         background-color: rgba(182, 82, 1, 0.151);
+      }
+
+      &.MOMO {
+         color: #a91f6c;
+         background-color: rgba(182, 1, 167, 0.151);
+         font-weight: bold;
+      }
+
+      &.CASH {
+         font-weight: bold;
+      }
+
+      &.Paid,
+      &.Unpaid {
+         font-style: italic;
+      }
+
+      &.VNPAY {
+         color: #0057a4;
+         background-color: rgba(1, 101, 182, 0.151);
+         font-weight: bold;
+      }
+   }
+
+   .cellWithImg {
+      display: flex;
+      align-items: center;
+
+      .cellImg {
+         width: 48px;
+         height: 48px;
+         border-radius: 20%;
+         object-fit: cover;
+         margin-right: 20px;
+      }
+   }
+
+   .MuiDataGrid-cell {
+      white-space: normal !important;
+   }
+
+   .cellAction {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+
+      .viewButton {
+         padding: 2px 5px;
+         border-radius: 5px;
+         color: darkblue;
+         border: 1px dotted rgba(0, 0, 139, 0.726);
+         cursor: pointer;
+      }
+
+      .deleteButton {
+         padding: 2px 5px;
+         border-radius: 5px;
+         color: crimson;
+         border: 1px dotted rgba(220, 20, 60, 0.726);
+         cursor: pointer;
+      }
+
+      .disabled {
+         cursor: context-menu;
+         background-color: rgba(128, 0, 128, 0.2);
+      }
+   }
+}

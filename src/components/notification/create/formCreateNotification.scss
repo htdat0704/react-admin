@@ -1,0 +1,97 @@
+.formNotification {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 20px;
+   justify-content: space-around;
+   width: 100%;
+
+   .formInputNotification {
+      width: 40%;
+
+      label {
+         display: flex;
+         align-items: center;
+         gap: 12px;
+
+         .icon {
+            cursor: pointer;
+         }
+      }
+
+      input,
+      textarea,
+      .deleteButton {
+         width: 100%;
+         padding: 4px;
+         border: none;
+         border-bottom: 1px solid gray;
+         font-size: 20px;
+      }
+
+      select {
+         width: 101.9%;
+         padding: 4px;
+         border: none;
+         border-bottom: 1px solid gray;
+         font-size: 20px;
+
+         &.multi {
+            border: none;
+            font-weight: normal;
+            color: black;
+            padding: 0;
+         }
+      }
+
+      input[type="submit"],
+      .deleteButton {
+         text-align: center;
+         width: 150px;
+         padding: 12px;
+         border: none;
+         background-color: teal;
+         cursor: pointer;
+         font-weight: bold;
+         margin-top: 12px;
+         color: white;
+      }
+
+      .deleteButton {
+         margin-left: 20px;
+         background-color: crimson;
+      }
+
+      input:disabled {
+         cursor: context-menu;
+         background-color: rgb(1, 36, 36);
+      }
+
+      .disabledDelete {
+         cursor: context-menu;
+         background-color: rgb(112, 3, 25);
+      }
+
+      &.submit {
+         display: flex;
+         justify-content: center;
+
+         div {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+         }
+      }
+   }
+}
+
+@media screen and (max-width: 600px) {
+   .formNotification {
+      display: block;
+      width: 100%;
+
+      .formInputNotification {
+         width: 100%;
+         margin-bottom: 20px;
+      }
+   }
+}

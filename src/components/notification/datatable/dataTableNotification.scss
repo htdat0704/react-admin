@@ -1,0 +1,93 @@
+.formDataNotification {
+   .top {
+      -webkit-box-shadow: 2px 4px 10px 1px rgb(0, 0, 0, 0.47);
+      box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+      padding: 12px 20px;
+      margin: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .error {
+         color: crimson;
+      }
+   }
+
+   .bottom {
+      -webkit-box-shadow: 2px 4px 10px 1px rgb(0, 0, 0, 0.47);
+      box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+      padding: 12px;
+      margin: 20px;
+      display: flex;
+
+      .title {
+         color: rgba(211, 211, 211, 0.075);
+         font-size: 20px;
+      }
+   }
+}
+
+.dropdown-container {
+   width: 102%;
+   .select-panel {
+      .options {
+         width: 100%;
+         .select-item {
+            width: 100%;
+            word-wrap: normal;
+            height: 30px;
+            display: flex;
+            justify-content: space-evenly;
+            .item-renderer {
+               width: 100%;
+               display: flex;
+               input {
+                  flex: 1;
+               }
+               span {
+                  flex: 5;
+               }
+            }
+         }
+      }
+   }
+}
+
+.dataTableNotification {
+   -webkit-box-shadow: 2px 4px 10px 1px rgb(0, 0, 0, 0.47);
+   box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+   padding: 8px;
+   margin: 20px;
+   height: 500px;
+}
+
+.MuiDataGrid-cell {
+   white-space: normal !important;
+}
+
+.cellAction {
+   display: flex;
+   align-items: center;
+   gap: 15px;
+
+   .viewButton {
+      padding: 2px 5px;
+      border-radius: 5px;
+      color: darkblue;
+      border: 1px dotted rgba(0, 0, 139, 0.726);
+      cursor: pointer;
+   }
+
+   .deleteButton {
+      padding: 2px 5px;
+      border-radius: 5px;
+      color: crimson;
+      border: 1px dotted rgba(220, 20, 60, 0.726);
+      cursor: pointer;
+   }
+
+   .disabled {
+      cursor: context-menu;
+      background-color: rgba(128, 0, 128, 0.2);
+   }
+}

@@ -1,0 +1,189 @@
+.formUpdateVehicle {
+   .top {
+      -webkit-box-shadow: 2px 4px 10px 1px rgb(0, 0, 0, 0.47);
+      box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+      padding: 12px 20px;
+      margin: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .error {
+         color: crimson;
+      }
+   }
+   .bottom {
+      -webkit-box-shadow: 2px 4px 10px 1px rgb(0, 0, 0, 0.47);
+      box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+      padding: 12px;
+      margin: 20px;
+      display: flex;
+
+      .title {
+         color: rgba(211, 211, 211, 0.075);
+         font-size: 20px;
+      }
+
+      .left {
+         flex: 1;
+         text-align: center;
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         width: 100%;
+
+         font-size: 20px;
+         #createProductFormImage {
+            img {
+               width: 8vmax;
+               height: 8vmax;
+               border-radius: 24%;
+               margin: 0 0.5vmax;
+            }
+
+            .itemImg:hover {
+               transform: scale(1.2);
+            }
+         }
+
+         #createProductFormFile {
+            label {
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               gap: 12px;
+
+               .icon {
+                  cursor: pointer;
+                  width: 10%;
+               }
+            }
+         }
+
+         input {
+            align-items: center;
+         }
+      }
+
+      .right {
+         flex: 2;
+
+         .form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-around;
+
+            .formInput {
+               width: 40%;
+
+               label {
+                  display: flex;
+                  align-items: center;
+                  gap: 12px;
+
+                  .icon {
+                     cursor: pointer;
+                  }
+               }
+
+               input,
+               textarea {
+                  width: 100%;
+                  padding: 4px;
+                  border: none;
+                  border-bottom: 1px solid gray;
+                  font-size: 20px;
+               }
+
+               select {
+                  width: 101.9%;
+                  padding: 4px;
+                  border: none;
+                  border-bottom: 1px solid gray;
+                  font-size: 20px;
+
+                  &.multi {
+                     border: none;
+                     font-weight: normal;
+                     color: black;
+                     padding: 0;
+                  }
+               }
+
+               input[type="submit"] {
+                  text-align: center;
+                  width: 150px;
+                  padding: 12px;
+                  border: none;
+                  background-color: teal;
+                  cursor: pointer;
+                  font-weight: bold;
+                  margin-top: 12px;
+                  color: white;
+               }
+
+               input:disabled {
+                  cursor: context-menu;
+                  background-color: crimson;
+               }
+
+               &.submit {
+                  display: flex;
+                  justify-content: center;
+
+                  div {
+                     display: flex;
+                     justify-content: center;
+                     flex-direction: column;
+                  }
+               }
+            }
+         }
+      }
+   }
+}
+.dropdown-container {
+   width: 102%;
+   .select-panel {
+      .options {
+         width: 100%;
+         .select-item {
+            width: 100%;
+            word-wrap: normal;
+            height: 30px;
+            display: flex;
+            justify-content: space-between;
+            .item-renderer {
+               width: 100%;
+               display: flex;
+               input {
+                  flex: 1;
+               }
+               span {
+                  flex: 5;
+               }
+            }
+         }
+      }
+   }
+}
+
+@media screen and (max-width: 600px) {
+   .formUpdateVehicle {
+      .bottom {
+         display: block;
+
+         .left {
+            display: block;
+            #createProductFormImage {
+               .itemImg {
+                  width: 12vmax;
+                  height: 12vmax;
+               }
+            }
+            margin-bottom: 12px;
+         }
+      }
+   }
+}

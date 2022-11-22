@@ -1,0 +1,44 @@
+.chart {
+   flex: 4;
+   -webkit-box-shadow: 2px 4px 10px 1px rgb(0, 0, 0, 0.47);
+   box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+   padding: 12px;
+   color: gray;
+
+   .titleChart {
+      margin-bottom: 20px;
+      font-weight: bold;
+      font-size: 24px;
+      display: flex;
+      font-style: bold;
+      color: #999;
+      justify-content: space-between;
+
+      .formInput {
+         display: flex;
+
+         label {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+         }
+
+         select {
+            padding: 4px;
+            border: none;
+            border-bottom: 1px solid gray;
+            font-size: 20px;
+         }
+      }
+   }
+
+   .chartGrid {
+      stroke: rgb(228, 225, 225);
+   }
+}
+
+@media screen and (max-width: 600px) {
+   .chart {
+      display: block;
+   }
+}

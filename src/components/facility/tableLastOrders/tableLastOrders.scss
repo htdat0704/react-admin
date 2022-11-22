@@ -1,0 +1,92 @@
+.table {
+   .cellWrapper {
+      display: flex;
+      align-items: center;
+
+      .image {
+         width: 32px;
+         height: 32px;
+         border-radius: 50%;
+         margin-right: 8px;
+         object-fit: cover;
+      }
+   }
+
+   .status,
+   .type {
+      padding: 8px;
+      border-radius: 4px;
+
+      &.Success,
+      &.CASH,
+      &.Paid {
+         color: green;
+         background-color: rgba(0, 128, 0, 0.151);
+      }
+
+      &.Processing {
+         color: goldenrod;
+         background-color: rgba(189, 189, 3, 0.103);
+      }
+
+      &.Cancel,
+      &.Unpaid {
+         color: crimson;
+         background-color: rgba(189, 3, 3, 0.103);
+      }
+
+      &.Confirm {
+         color: rgb(27, 27, 245);
+         background-color: rgba(0, 9, 128, 0.151);
+      }
+
+      &.Going {
+         color: coral;
+         background-color: rgba(182, 82, 1, 0.151);
+      }
+
+      &.MOMO {
+         color: #a91f6c;
+         background-color: rgba(182, 1, 167, 0.151);
+         font-weight: bold;
+      }
+
+      &.CASH {
+         font-weight: bold;
+      }
+
+      &.Paid,
+      &.Unpaid {
+         font-style: italic;
+      }
+
+      &.VNPAY {
+         color: #0057a4;
+         background-color: rgba(1, 101, 182, 0.151);
+         font-weight: bold;
+      }
+   }
+
+   .cellAction {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      text-decoration: none;
+
+      .viewButton {
+         padding: 2px 5px;
+         border-radius: 5px;
+         color: darkblue;
+         border: 1px dotted rgba(0, 0, 139, 0.726);
+         cursor: pointer;
+      }
+   }
+}
+
+.noOrder {
+   padding: 2px 8px;
+   border-radius: 4px;
+   color: rgb(128, 122, 122);
+   text-align: center;
+   font-weight: bold;
+}

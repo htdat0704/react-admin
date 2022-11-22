@@ -1,0 +1,129 @@
+.topDetailVehicle {
+   padding: 20px;
+   display: flex;
+   gap: 20px;
+   flex-direction: column;
+   .left {
+      flex: 1;
+      -webkit-box-shadow: 2px 4px 10px 1px rgb(0, 0, 0, 0.47);
+      box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+      padding: 20px;
+      position: relative;
+
+      .editButton {
+         position: absolute;
+         top: 0;
+         right: 0;
+         padding: 12px;
+         font-size: 28px;
+         color: #7451f8;
+         background-color: #7551f831;
+         cursor: pointer;
+         border-radius: 0px 0px 0px 8px;
+      }
+
+      .item {
+         display: flex;
+         gap: 20px;
+         justify-content: space-around;
+
+         .listImg {
+            display: flex;
+            width: 40%;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 20px;
+            justify-content: space-evenly;
+
+            .itemImg {
+               border-radius: 1%;
+               object-fit: cover;
+               box-shadow: 2px 4px 10px 1px rgba(100, 100, 100, 0.096);
+               height: 400px;
+            }
+
+            .carouselDetail {
+               width: 100%;
+            }
+         }
+
+         .details {
+            margin-left: 20px;
+            width: 60%;
+            .itemTitle {
+               margin-bottom: 12px;
+               color: #555;
+            }
+
+            .detailsItem {
+               margin-bottom: 12px;
+               font-size: 20px;
+               display: flex;
+               .itemKey {
+                  flex: 2;
+                  font-weight: bold;
+                  color: gray;
+                  margin-right: 12px;
+               }
+
+               .itemValue {
+                  flex: 4;
+                  font-weight: 300;
+               }
+            }
+         }
+      }
+   }
+
+   .right {
+      flex: 2;
+      width: 100%;
+   }
+}
+
+.bottom {
+   -webkit-box-shadow: 2px 4px 10px 1px rgb(0, 0, 0, 0.47);
+   box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+   padding: 20px;
+   margin: 10px 20px;
+}
+
+@media screen and (max-width: 600px) {
+   .topDetailVehicle {
+      .left {
+         .item {
+            display: block;
+            width: 100%;
+            .listImg {
+               display: block;
+               width: 100%;
+               align-items: center;
+               text-align: center;
+            }
+            .details {
+               display: block;
+               width: 100%;
+               align-items: center;
+               text-align: center;
+            }
+         }
+      }
+   }
+}
+
+.animated {
+   align-items: center;
+}
+
+.thumbs-wrapper {
+   margin: 8px !important;
+   text-align: center;
+
+   .thumbs {
+      padding-left: 4px;
+   }
+
+   .thumb .itemImg {
+      height: 60px !important;
+   }
+}

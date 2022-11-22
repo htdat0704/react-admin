@@ -1,0 +1,131 @@
+.LoginSignUpBox {
+   background-color: white;
+   width: 25vw;
+   height: 60vh;
+   box-sizing: border-box;
+   overflow: hidden;
+}
+
+.loginForm {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   margin: auto;
+   padding: 2vmax;
+   justify-content: space-evenly;
+   height: 80%;
+   transition: all 0.5s;
+}
+
+.loginForm > div {
+   display: flex;
+   width: 100%;
+   align-items: center;
+}
+.loginForm > div > input {
+   padding: 1vmax 4vmax;
+   padding-right: 1vmax;
+   width: 100%;
+   box-sizing: border-box;
+   border: 1px solid rgba(0, 0, 0, 0.267);
+   border-radius: 4px;
+   font: 300 0.9vmax cursive;
+   outline: none;
+}
+
+.loginForm > div > .svgImg {
+   position: absolute;
+   transform: translateX(1vmax);
+   font-size: 1.6vmax;
+   color: rgba(0, 0, 0, 0.623);
+}
+
+.loginForm > a {
+   color: rgba(0, 0, 0, 0.651);
+   text-decoration: none;
+   align-self: flex-end;
+   transition: all 0.5s;
+   font: 500 0.8vmax "Gill Sans";
+}
+
+.loginForm > a:hover {
+   color: black;
+}
+
+#registerImage > img {
+   width: 3vmax;
+}
+#registerImage > input {
+   display: flex;
+   padding: 0%;
+}
+
+#registerImage > input::file-selector-button {
+   cursor: pointer;
+   width: 100%;
+   z-index: 2;
+   height: 5vh;
+   border: none;
+   margin: 0%;
+   font: 400 0.8vmax cursive;
+   transition: all 0.5s;
+   padding: 0 1vmax;
+   color: rgba(0, 0, 0, 0.623);
+   background-color: rgb(255, 255, 255);
+}
+
+#registerImage > input::file-selector-button:hover {
+   background-color: rgb(235, 235, 235);
+}
+
+.loginBtn {
+   border: none;
+   background-color: #7451f8;
+   color: white;
+   font: 300 0.9vmax "Roboto";
+   width: 100%;
+   padding: 0.8vmax;
+   cursor: pointer;
+   transition: all 0.5s;
+   border-radius: 4px;
+   outline: none;
+   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.219);
+}
+
+.loginBtn:hover {
+   background-color: #4b1cf7;
+}
+
+@media screen and (max-width: 600px) {
+   .login {
+      background-color: white;
+   }
+
+   .LoginSignUpBox {
+      width: 100vw;
+      height: auto;
+   }
+
+   .loginForm {
+      padding: 5vmax;
+      gap: 20px;
+   }
+
+   .loginForm > div > input {
+      padding: 2.5vmax 5vmax;
+      font: 300 1.7vmax cursive;
+   }
+
+   .loginForm > div > svg {
+      font-size: 2.8vmax;
+   }
+
+   .loginForm > a {
+      font: 500 1.8vmax "Gill Sans";
+   }
+
+   .loginBtn {
+      font: 300 1.9vmax "Roboto";
+      padding: 1.8vmax;
+   }
+}
