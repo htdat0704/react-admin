@@ -22,7 +22,7 @@ function App() {
    }, []);
 
    return (
-      <Router>
+      <Router basename="/login">
          <Routes>
             <Route path="/">
                <Route path="login" index element={<Login />} />
