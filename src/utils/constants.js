@@ -1,6 +1,6 @@
-exports.linkURL = "https://htdat0704-server-senioir-project.onrender.com";
+export const linkURL = "https://htdat0704-server-senioir-project.onrender.com";
 
-exports.optionsDriverLicense = [
+export const optionsDriverLicense = [
    { label: "Scooter/Motorbike 50-175cm3", value: "A1" },
    { label: "Motorcycle >175cm3", value: "A2" },
    { label: "3-wheel Motorcycle", value: "A3" },
@@ -10,7 +10,7 @@ exports.optionsDriverLicense = [
    { label: "More than C", value: "another" },
 ];
 
-exports.optionsColor = [
+export const optionsColor = [
    { label: "Yellow 🍋", value: "yellow" },
    { label: "Orange 🥭", value: "orange" },
    { label: "Red 🍓", value: "red" },
@@ -24,14 +24,14 @@ exports.optionsColor = [
    { label: "Grey 🔘", value: "grey" },
 ];
 
-exports.reduceFromObjToArray = value => {
+export const reduceFromObjToArray = value => {
    return value.reduce(
       (previousValue, currentValue) => [...previousValue, currentValue.value],
       [],
    );
 };
 
-exports.rowHeaderUserLastOrders = [
+export const rowHeaderUserLastOrders = [
    "From Date",
    "End Date",
    "Total Price (VND)",
@@ -41,7 +41,7 @@ exports.rowHeaderUserLastOrders = [
    "View",
 ];
 
-exports.rowHeaderVehicleLastOrders = [
+export const rowHeaderVehicleLastOrders = [
    "Customer Name",
    "Phone Number",
    "From Date",
@@ -52,7 +52,7 @@ exports.rowHeaderVehicleLastOrders = [
    "View",
 ];
 
-exports.rowHeaderFacilityLastOrders = [
+export const rowHeaderFacilityLastOrders = [
    "Customer Name",
    "Phone Number",
    "From Date",
@@ -64,7 +64,7 @@ exports.rowHeaderFacilityLastOrders = [
    "View",
 ];
 
-exports.rowHeaderDashboardLastOrders = [
+export const rowHeaderDashboardLastOrders = [
    "Customer Name",
    "Phone Number",
    "Facility Name",
@@ -77,7 +77,7 @@ exports.rowHeaderDashboardLastOrders = [
    "View",
 ];
 
-exports.dataMonthChart = [
+export const dataMonthChart = [
    { name: "January", Total: 0 },
    { name: "February", Total: 0 },
    { name: "March", Total: 0 },
@@ -92,7 +92,7 @@ exports.dataMonthChart = [
    { name: "December", Total: 0 },
 ];
 
-exports.years = [
+export const years = [
    +new Date().getFullYear(),
    +new Date().getFullYear() - 1,
    +new Date().getFullYear() - 2,
@@ -101,11 +101,11 @@ exports.years = [
    +new Date().getFullYear() - 5,
 ];
 
-exports.optionsCategory = ["CAR", "MOTORBIKE"];
+export const optionsCategory = ["CAR", "MOTORBIKE"];
 
-exports.optionsRole = ["user", "admin"];
+export const optionsRole = ["user", "admin"];
 
-exports.optionsBrand = [
+export const optionsBrand = [
    "YAMAHA",
    "HARLEY",
    "BMW",
@@ -122,7 +122,7 @@ exports.optionsBrand = [
    "TOYOTA",
 ];
 
-exports.optionsOrderStatus = [
+export const optionsOrderStatus = [
    "Processing",
    "Confirm",
    "Going",
@@ -130,7 +130,7 @@ exports.optionsOrderStatus = [
    "Cancel",
 ];
 
-exports.optionsNotificationType = [
+export const optionsNotificationType = [
    "Vehicle",
    "Order",
    "Account",
@@ -138,7 +138,7 @@ exports.optionsNotificationType = [
    "News",
 ];
 
-exports.optionsPaymentType = ["CASH", "MOMO", "VNPAY"];
+export const optionsPaymentType = ["CASH", "MOMO", "VNPAY"];
 
-exports.imageDefault =
+export const imageDefault =
    "https://res.cloudinary.com/dvf2zgyb6/image/upload/v1666248749/Untitled_p1afa2.png";
