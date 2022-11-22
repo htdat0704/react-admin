@@ -1,4 +1,4 @@
-exports.linkURL = "http://localhost:5000";
+exports.linkURL = "https://htdat0704-server-senioir-project.onrender.com";
 
 exports.optionsDriverLicense = [
    { label: "Scooter/Motorbike 50-175cm3", value: "A1" },
