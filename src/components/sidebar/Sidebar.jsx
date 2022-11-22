@@ -77,7 +77,7 @@ const Sidebar = () => {
                   </li>
                </Link>
                <p className="title">USER</p>
-               <li className="sidebarLi">
+               <li className="sidebarLi" onClick={handleClick}>
                   <LogoutIcon className="icon" />
                   <span>Logout</span>
                </li>

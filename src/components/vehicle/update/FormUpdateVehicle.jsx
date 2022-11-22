@@ -160,8 +160,9 @@ const FormUpdateVehicle = () => {
 
    const updateVehicleSubmitHandler = async e => {
       e.preventDefault();
-      const result = await updateVehicle(formUpdate, vehicleId);
       setLoadingSubmit(true);
+      const result = await updateVehicle(formUpdate, vehicleId);
+
       if (result) {
          navigate("/vehicles", { replace: true });
       } else {
@@ -377,7 +378,7 @@ const FormUpdateVehicle = () => {
                         <input
                            type="submit"
                            value="UPDATE"
-                           disabled={loadingSubmit}
+                           disabled={loadingSubmit ? true : false}
                         />
                      </div>
                   </div>
