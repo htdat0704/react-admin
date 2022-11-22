@@ -36,12 +36,12 @@ function App() {
                />
                <Route path="password">
                   <Route
-                     path="forgot"
-                     element={<ForgotPassword role={"forgotPassword"} />}
-                  />
-                  <Route
                      path="reset/:token"
                      element={<ForgotPassword role={"resetPassword"} />}
+                  />
+                  <Route
+                     path="forgot"
+                     element={<ForgotPassword role={"forgotPassword"} />}
                   />
                </Route>
                <Route path="users">
