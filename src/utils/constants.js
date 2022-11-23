@@ -1,5 +1,5 @@
-// export const linkURL = "https://htdat0704-server-senioir-project.onrender.com";
-export const linkURL = "http://localhost:5000";
+export const linkURL = "https://htdat0704-server-senioir-project.onrender.com";
+// export const linkURL = "http://localhost:5000";
 
 export const optionsDriverLicense = [
    { label: "Scooter/Motorbike 50-175cm3", value: "A1" },
