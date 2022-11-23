@@ -22,25 +22,19 @@ const FormLogin = () => {
    const [openAlert, setOpenAlert] = useState(false);
    const navigate = useNavigate();
 
-   const loadingShow = () => {
-      setLoading(true);
-      setTimeout(() => {
-         setLoading(false);
-      }, 2000);
-   };
-
    const handleOnChangeLogin = e => {
       setFormLogin({ ...formLogin, [e.target.name]: e.target.value });
    };
 
    const submitLoginHandle = async e => {
       e.preventDefault();
-      loadingShow();
+      setLoading(true);
       const result = await loginUser(formLogin);
 
       if (!result) {
          setOpenAlert(true);
       }
+      setLoading(false);
    };
 
    useEffect(() => {

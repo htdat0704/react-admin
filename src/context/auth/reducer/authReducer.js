@@ -58,6 +58,7 @@ export const authReducer = (state, action) => {
             ...state,
             message: "Change Password Successfully",
             error: "",
+            access: false,
          };
       case VERIFY_RESET_PASSWORD_SUCCESS:
          return {

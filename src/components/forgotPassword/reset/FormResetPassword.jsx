@@ -50,6 +50,7 @@ const FormResetPassword = () => {
       } else {
          setOpenAlertError(true);
       }
+
       setLoadingSubmit(false);
    };
 
@@ -60,20 +61,20 @@ const FormResetPassword = () => {
    return (
       <Fragment>
          <LoadingModel show={loadingSubmit} />
+         <CustomizedSnackbarsError
+            message={error}
+            openAlert={openAlertError}
+            setOpenAlert={setOpenAlertError}
+            setNullMessageAndError={setNullMessageAndError}
+         />
+         <CustomizedSnackbarsSuccess
+            message={message}
+            openAlert={openAlertSuccess}
+            setOpenAlert={setOpenAlertSuccess}
+            setNullMessageAndError={setNullMessageAndError}
+         />
          {access ? (
             <div className="resetPasswordContainer">
-               <CustomizedSnackbarsError
-                  message={error}
-                  openAlert={openAlertError}
-                  setOpenAlert={setOpenAlertError}
-                  setNullMessageAndError={setNullMessageAndError}
-               />
-               <CustomizedSnackbarsSuccess
-                  message={message}
-                  openAlert={openAlertSuccess}
-                  setOpenAlert={setOpenAlertSuccess}
-                  setNullMessageAndError={setNullMessageAndError}
-               />
                <div className="resetPasswordBox">
                   <h2 className="resetPasswordHeading">Reset Password</h2>
                   <form
