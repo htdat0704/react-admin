@@ -101,7 +101,7 @@ export const years = [
    +new Date().getFullYear() - 5,
 ];
 
-export const optionsCategory = ["CAR", "MOTORBIKE"];
+export const optionsCategory = ["CAR", "SCOOTER"];
 
 export const optionsRole = ["user", "admin"];
 
