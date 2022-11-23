@@ -35,6 +35,7 @@ export const orderReducer = (state, action) => {
          return {
             ...state,
             orders: payload,
+            message: "Get All Orders Success",
          };
       case UPDATE_ORDER_SUCCESS:
          return {

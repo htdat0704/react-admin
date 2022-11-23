@@ -126,7 +126,9 @@ const columnsUser = (handleDelete, disabledButton = false) => {
          renderCell: params => {
             return (
                <div className="cellAction">
-                  <Link to={`/users/${params.id}`}>
+                  <Link
+                     to={`/users/${params.id}`}
+                     style={{ textDecoration: "none" }}>
                      <div className="viewButton">View</div>
                   </Link>
                   <div

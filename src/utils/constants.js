@@ -1,4 +1,5 @@
-export const linkURL = "https://htdat0704-server-senioir-project.onrender.com";
+// export const linkURL = "https://htdat0704-server-senioir-project.onrender.com";
+export const linkURL = "http://localhost:5000";
 
 export const optionsDriverLicense = [
    { label: "Scooter/Motorbike 50-175cm3", value: "A1" },
@@ -104,6 +105,13 @@ export const years = [
 export const optionsCategory = ["CAR", "SCOOTER"];
 
 export const optionsRole = ["user", "admin"];
+
+export const kindOrders = [
+   { label: "Orders will pick up the vehicle today", value: "fromDate" },
+   { label: "Orders will return the vehicle today", value: "endDate" },
+   { label: "Orders create today", value: "today" },
+   { label: "All", value: "all" },
+];
 
 export const optionsBrand = [
    "YAMAHA",

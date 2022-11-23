@@ -48,12 +48,6 @@ const columnsVehicle = (handleDelete, disabledButton = false) => {
          flex: 1,
       },
       {
-         field: "color",
-         headerName: "Color",
-         minWidth: 120,
-         flex: 1,
-      },
-      {
          field: "ratings",
          headerName: "Ratings",
          minWidth: 120,
@@ -90,7 +84,9 @@ const columnsVehicle = (handleDelete, disabledButton = false) => {
          renderCell: params => {
             return (
                <div className="cellActionVehicle">
-                  <Link to={`/vehicles/${params.id}`}>
+                  <Link
+                     to={`/vehicles/${params.id}`}
+                     style={{ textDecoration: "none" }}>
                      <div className="viewButton">View</div>
                   </Link>
                   <div

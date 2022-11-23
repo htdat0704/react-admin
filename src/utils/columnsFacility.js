@@ -23,7 +23,9 @@ const columnsFacility = (handleDelete, disabledButton = false) => {
          renderCell: params => {
             return (
                <div className="cellAction">
-                  <Link to={`/facilities/${params.id}`}>
+                  <Link
+                     to={`/facilities/${params.id}`}
+                     style={{ textDecoration: "none" }}>
                      <div className="viewButton">View</div>
                   </Link>
                   <div

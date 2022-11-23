@@ -60,18 +60,6 @@ const columnsOrder = (handleDelete, disabledButton = false) => {
          minWidth: 120,
       },
       {
-         field: "itemsPrice",
-         headerName: "Items Price (VND)",
-         flex: 1,
-         minWidth: 120,
-      },
-      {
-         field: "overtimeFee",
-         headerName: "Overtime Fee (VND)",
-         flex: 1,
-         minWidth: 120,
-      },
-      {
          field: "totalPrice",
          headerName: "Total (VND)",
          flex: 1,
@@ -81,7 +69,7 @@ const columnsOrder = (handleDelete, disabledButton = false) => {
          field: "fromDate",
          headerName: "From Date",
          flex: 1,
-         minWidth: 160,
+         minWidth: 180,
          renderCell: params => {
             return (
                <>
@@ -98,15 +86,13 @@ const columnsOrder = (handleDelete, disabledButton = false) => {
          field: "endDate",
          headerName: "End Date",
          flex: 1,
-         minWidth: 160,
+         minWidth: 180,
          renderCell: params => {
             return (
                <>
-                  {params.row.endDate
-                     ? new Date(params.row.endDate).toLocaleDateString() +
-                       " " +
-                       new Date(params.row.endDate).toLocaleTimeString()
-                     : ""}
+                  {new Date(params.row.endDate).toLocaleDateString() +
+                     " " +
+                     new Date(params.row.endDate).toLocaleTimeString()}
                </>
             );
          },
@@ -163,7 +149,9 @@ const columnsOrder = (handleDelete, disabledButton = false) => {
          renderCell: params => {
             return (
                <div className="cellAction">
-                  <Link to={`/orders/${params.id}`}>
+                  <Link
+                     to={`/orders/${params.id}`}
+                     style={{ textDecoration: "none" }}>
                      <div className="viewButton">View</div>
                   </Link>
                   <div

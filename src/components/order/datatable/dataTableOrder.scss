@@ -2,6 +2,53 @@
    height: 800px;
    padding: 20px;
 
+   .datatableTitle {
+      width: 100%;
+      font-size: 24px;
+      color: gray;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      form {
+         display: flex;
+         gap: 32px;
+
+         .link {
+            text-decoration: none;
+            color: green;
+            font-size: 18px;
+            font-weight: 400;
+            border: 1px solid green;
+            padding: 8px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+         }
+
+         input[type="submit"]:disabled {
+            cursor: context-menu;
+            background-color: crimson;
+            color: black;
+         }
+
+         .formInput {
+            label {
+               align-items: center;
+               gap: 12px;
+            }
+
+            select {
+               width: 100%;
+               padding: 4px;
+               border: none;
+               border-bottom: 1px solid gray;
+               font-size: 20px;
+            }
+         }
+      }
+   }
+
    .location {
       padding: 8px;
       border-radius: 4px;

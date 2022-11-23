@@ -100,6 +100,14 @@ const FormCreateVehicle = () => {
       setFormCreate({ ...formCreate, [e.target.name]: e.target.value });
    };
 
+   const handleChangeCategory = e => {
+      setFormCreate({
+         ...formCreate,
+         [e.target.name]: e.target.value,
+         seats: 2,
+      });
+   };
+
    const createVehicleSubmitHandler = async e => {
       e.preventDefault();
       setLoadingSubmit(true);
@@ -240,6 +248,7 @@ const FormCreateVehicle = () => {
                         name="seats"
                         id="seats"
                         required
+                        hidden={formCreate.category === "SCOOTER"}
                         value={formCreate.seats}
                      />
                   </div>
@@ -260,7 +269,7 @@ const FormCreateVehicle = () => {
                      <select
                         id="category"
                         name="category"
-                        onChange={handleChangeForm}
+                        onChange={handleChangeCategory}
                         value={formCreate.category}>
                         {optionsCategory &&
                            optionsCategory.map(value => (

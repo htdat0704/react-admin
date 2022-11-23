@@ -20,12 +20,12 @@ import {
 function OrderProvider({ children }) {
    const [orderState, dispatch] = useReducer(orderReducer, orderInit);
 
-   const getAllOrders = async () => {
+   const getAllOrders = async kind => {
       if (localStorage["auth-token"]) {
          setAuthToken(localStorage["auth-token"]);
       }
       try {
-         const response = await axios.get(`${linkURL}/order/list`);
+         const response = await axios.get(`${linkURL}/order/list/${kind}`);
 
          if (response.data.success)
             dispatch(getAllOrdersSuccess(response.data.orders));

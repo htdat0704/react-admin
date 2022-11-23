@@ -5,6 +5,7 @@ import { OrderContext } from "../../../context/order/OrderContext";
 import columnsOrder from "../../../utils/columnsOrder";
 import CustomizedSnackbarsSuccess from "../../alert/AlertSuccess";
 import CustomizedSnackbarsError from "../../alert/AlertError";
+import { kindOrders } from "../../../utils/constants";
 
 import "./dataTableOrder.scss";
 
@@ -13,13 +14,14 @@ const DatatableOrder = () => {
    const [loadingSubmit, setLoadingSubmit] = useState(false);
    const [openAlertSuccess, setOpenAlertSuccess] = useState(false);
    const [openAlertError, setOpenAlertError] = useState(false);
+   const [kindOrdersState, setkindOrdersState] = useState("all");
    const {
       orderState: { orders, message, error },
       getAllOrders,
       deleteOrder,
       setNullMessageAndError,
    } = useContext(OrderContext);
-
+   console.log(orders);
    const handleDelete = id => {
       loadingShow();
       if (!loadingSubmit) {
@@ -39,12 +41,23 @@ const DatatableOrder = () => {
 
    useEffect(() => {
       const timer = setTimeout(async () => {
-         await getAllOrders();
+         await getAllOrders(kindOrdersState);
          setLoading(false);
       }, 1000);
       return () => clearTimeout(timer);
       // eslint-disable-next-line react-hooks/exhaustive-deps
    }, []);
+
+   const handleChangeKind = e => {
+      setkindOrdersState(e.target.value);
+   };
+
+   const handleSubmit = async e => {
+      e.preventDefault();
+      setLoadingSubmit(true);
+      await getAllOrders(kindOrdersState);
+      setLoadingSubmit(false);
+   };
 
    orders &&
       orders.forEach((order, index) => {
@@ -54,12 +67,8 @@ const DatatableOrder = () => {
             userId: order.user ? order.user._id : "",
             pickUpLocation: order.pickUpLocation,
             facility: order.facility ? order.facility.name : "",
-            fromDate: order.fromDate
-               ? new Date(order.fromDate).toLocaleDateString()
-               : "",
-            endDate: order.endDate
-               ? new Date(order.endDate).toLocaleDateString()
-               : "",
+            fromDate: order.fromDate,
+            endDate: order.endDate,
             paymentType: order.payment.paymentType,
             paymentStatus: order.payment.paymentStatus,
             orderStatus: order.orderStatus,
@@ -96,6 +105,34 @@ const DatatableOrder = () => {
          />
          <div className="datatableOrder">
             <LoadingModel show={isLoading || loadingSubmit} />
+            <div className="datatableTitle">
+               Orders Manager.
+               <form onSubmit={handleSubmit}>
+                  <div className="formInput">
+                     <label htmlFor="kind">Kind of Orders:</label>
+                     <select
+                        placeholder="Kind of Orders"
+                        name="kind"
+                        id="kind"
+                        value={kindOrdersState}
+                        onChange={handleChangeKind}>
+                        {kindOrders &&
+                           kindOrders.map(kind => (
+                              <option value={kind.value} key={kind.value}>
+                                 {kind.label}
+                              </option>
+                           ))}
+                     </select>
+                  </div>
+                  <input
+                     style={{ textDecoration: "none" }}
+                     className="link"
+                     value="SHOW"
+                     type="submit"
+                     disabled={isLoading}
+                  />
+               </form>
+            </div>
             <div style={{ height: "100%", width: "100%" }}>
                <DataGrid
                   rows={rows}
