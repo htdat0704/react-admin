@@ -293,6 +293,20 @@
       display: block;
       .itemVehicle {
          margin-bottom: 20px;
+         .listImages {
+            text-align: center;
+            display: block;
+            .imageVehicle {
+               text-align: center;
+               margin-bottom: 8px;
+            }
+            .inforVehicle {
+               margin-left: 0;
+            }
+         }
+      }
+      .total {
+         margin-right: 0px;
       }
    }
 

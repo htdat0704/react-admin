@@ -6,6 +6,7 @@ import columnsOrder from "../../../utils/columnsOrder";
 import CustomizedSnackbarsSuccess from "../../alert/AlertSuccess";
 import CustomizedSnackbarsError from "../../alert/AlertError";
 import { kindOrders } from "../../../utils/constants";
+import ModelAddNotification from "../modalNotification/ModelAddNotification";
 
 import "./dataTableOrder.scss";
 
@@ -14,22 +15,41 @@ const DatatableOrder = () => {
    const [loadingSubmit, setLoadingSubmit] = useState(false);
    const [openAlertSuccess, setOpenAlertSuccess] = useState(false);
    const [openAlertError, setOpenAlertError] = useState(false);
+   const [open, setOpen] = useState(false);
    const [kindOrdersState, setkindOrdersState] = useState("all");
+   const [formNotif, setFormNotif] = useState({
+      fromDate: new Date(),
+      startDate: new Date(),
+      userId: "",
+      orderId: "",
+   });
    const {
       orderState: { orders, message, error },
       getAllOrders,
       deleteOrder,
       setNullMessageAndError,
+      addNotification,
    } = useContext(OrderContext);
-   console.log(orders);
+
    const handleDelete = id => {
       loadingShow();
       if (!loadingSubmit) {
          deleteOrder(id);
       }
    };
+   const handleOpen = (fromDate, endDate, userId, orderId) => {
+      setFormNotif(old => {
+         return { ...old, fromDate, endDate, userId, orderId };
+      });
+      setOpen(true);
+   };
 
-   const columns = columnsOrder(handleDelete, loadingSubmit);
+   const handleSendNotification = async message => {
+      loadingShow();
+      await addNotification(formNotif.userId, message, formNotif.orderId);
+      setOpen(false);
+   };
+   const columns = columnsOrder(handleDelete, loadingSubmit, handleOpen);
    const rows = [];
 
    const loadingShow = () => {
@@ -64,6 +84,7 @@ const DatatableOrder = () => {
          rows.push({
             id: order._id,
             name: order.user ? order.user.name : "",
+            phoneNumber: order.user ? order.user.phoneNumber : "",
             userId: order.user ? order.user._id : "",
             pickUpLocation: order.pickUpLocation,
             facility: order.facility ? order.facility.name : "",
@@ -142,6 +163,12 @@ const DatatableOrder = () => {
                />
             </div>
          </div>
+         <ModelAddNotification
+            open={open}
+            setOpen={setOpen}
+            dateSelectNotif={formNotif}
+            handleSendNotification={handleSendNotification}
+         />
       </>
    );
 };

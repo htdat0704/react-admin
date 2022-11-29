@@ -156,9 +156,64 @@
          cursor: pointer;
       }
 
+      .notificationButton {
+         padding-left: 8px;
+         padding-right: 8px;
+         padding-top: 4px;
+         border-radius: 5px;
+         color: goldenrod;
+         border: 1px dotted rgb(228, 170, 26);
+         cursor: pointer;
+      }
+
       .disabled {
          cursor: context-menu;
          background-color: rgba(128, 0, 128, 0.2);
       }
+
+      .disabledNotif {
+         cursor: context-menu;
+         border: 1px dotted rgba(219, 180, 82, 0.884);
+         color: rgb(223, 197, 163);
+      }
+   }
+}
+
+.rowBlockDate {
+   display: block;
+   .newOrder {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+   }
+}
+
+.warningRed {
+   color: rgb(150, 0, 30);
+}
+
+.waitAndGoing {
+   color: #6439ff;
+}
+
+.finishOrder {
+   color: #008000;
+}
+
+.leftGetVehicle {
+   color: orange;
+}
+
+.lateReturnVehicle {
+   color: crimson;
+}
+
+.dayLeft {
+   color: rgb(7, 7, 122);
+}
+
+@media screen and (max-width: 600px) {
+   .datatableTitle {
+      display: block !important;
    }
 }

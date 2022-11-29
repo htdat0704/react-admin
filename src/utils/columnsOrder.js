@@ -1,27 +1,44 @@
 import { Link } from "react-router-dom";
 import Chip from "@mui/material/Chip";
 import React from "react";
+import {
+   convertDateToVNI,
+   convertTimeToVNI,
+   convertHour,
+   around24H,
+   dateMoreThanNow,
+   dateDiff,
+} from "./constants";
+import SmsFailedIcon from "@mui/icons-material/SmsFailed";
 
-const columnsOrder = (handleDelete, disabledButton = false) => {
+const columnsOrder = (handleDelete, disabledButton = false, handleOpen) => {
    return [
       { field: "id", headerName: "ID", hide: true },
       {
          field: "name",
          headerName: "Customer Name",
          minWidth: 120,
+         flex: 1,
          renderCell: params => {
             return (
                <Link
                   to={"/users/" + params.row.userId}
-                  style={{ textDecoration: "none", color: "black" }}>
+                  style={{ textDecoration: "none", color: "black" }}
+                  className={"rowBlockDate"}>
                   {new Date(params.row.createdAt).toLocaleDateString() ===
                   new Date().toLocaleDateString() ? (
-                     <>
-                        <Chip label="New" size="small" color="error" />{" "}
-                        {params.row.name}
-                     </>
+                     <div className="newOrder">
+                        <Chip label="New" size="small" color="error" />
+                        <div>
+                           <p>{params.row.name}</p>
+                           <p>{params.row.phoneNumber}</p>
+                        </div>
+                     </div>
                   ) : (
-                     params.row.name
+                     <>
+                        <p>{params.row.name}</p>
+                        <p>{params.row.phoneNumber}</p>
+                     </>
                   )}
                </Link>
             );
@@ -30,8 +47,7 @@ const columnsOrder = (handleDelete, disabledButton = false) => {
       {
          field: "pickUpLocation",
          headerName: "Pick up Location",
-         flex: 1,
-         minWidth: 120,
+         minWidth: 140,
          renderCell: params => {
             return (
                <>
@@ -56,52 +72,113 @@ const columnsOrder = (handleDelete, disabledButton = false) => {
       {
          field: "facility",
          headerName: "Facility",
-         flex: 1,
-         minWidth: 120,
+         minWidth: 150,
       },
       {
          field: "totalPrice",
          headerName: "Total (VND)",
-         flex: 1,
-         minWidth: 100,
+         minWidth: 120,
       },
       {
          field: "fromDate",
          headerName: "From Date",
-         flex: 1,
-         minWidth: 180,
+         minWidth: 200,
          renderCell: params => {
             return (
-               <>
-                  {params.row.fromDate
-                     ? new Date(params.row.fromDate).toLocaleDateString() +
-                       " " +
-                       new Date(params.row.fromDate).toLocaleTimeString()
-                     : ""}
-               </>
+               <div className="rowBlockDate">
+                  <p>
+                     {params.row.fromDate
+                        ? convertDateToVNI(params.row.fromDate) +
+                          " " +
+                          convertTimeToVNI(params.row.fromDate)
+                        : ""}
+                  </p>
+                  {params.row.orderStatus === "Processing" ||
+                  params.row.orderStatus === "Confirm" ? (
+                     around24H(params.row.fromDate) ? (
+                        <p
+                           className={
+                              dateMoreThanNow(params.row.fromDate)
+                                 ? "leftGetVehicle"
+                                 : "lateReturnVehicle"
+                           }>
+                           {" "}
+                           {convertHour(params.row.fromDate)}{" "}
+                           {dateMoreThanNow(params.row.fromDate)
+                              ? "left"
+                              : "late"}
+                        </p>
+                     ) : dateMoreThanNow(params.row.fromDate) ? (
+                        <p className="dayLeft">
+                           {dateDiff(params.row.fromDate) === 1
+                              ? dateDiff(params.row.fromDate) + " day left "
+                              : dateDiff(params.row.fromDate) + " days left"}
+                        </p>
+                     ) : (
+                        <p className="warningRed">Out of Date</p>
+                     )
+                  ) : params.row.orderStatus === "Going" ? (
+                     <p className="waitAndGoing">Going...</p>
+                  ) : params.row.orderStatus === "Success" ? (
+                     <p className="finishOrder">Finished</p>
+                  ) : (
+                     <p className="warningRed">Cancel</p>
+                  )}
+               </div>
             );
          },
       },
       {
          field: "endDate",
          headerName: "End Date",
-         flex: 1,
-         minWidth: 180,
+         minWidth: 220,
          renderCell: params => {
             return (
-               <>
-                  {new Date(params.row.endDate).toLocaleDateString() +
-                     " " +
-                     new Date(params.row.endDate).toLocaleTimeString()}
-               </>
+               <div className="rowBlockDate">
+                  <p>
+                     {convertDateToVNI(params.row.endDate) +
+                        " " +
+                        convertTimeToVNI(params.row.endDate)}
+                  </p>
+                  {params.row.orderStatus === "Going" ? (
+                     around24H(params.row.endDate) ? (
+                        <p
+                           className={
+                              dateMoreThanNow(params.row.endDate)
+                                 ? "leftGetVehicle"
+                                 : "lateReturnVehicle"
+                           }>
+                           {" "}
+                           {convertHour(params.row.endDate)}{" "}
+                           {dateMoreThanNow(params.row.endDate)
+                              ? "left"
+                              : "late"}
+                        </p>
+                     ) : dateMoreThanNow(params.row.endDate) ? (
+                        <p className="dayLeft">
+                           {dateDiff(params.row.endDate) === 1
+                              ? dateDiff(params.row.endDate) + " day left "
+                              : dateDiff(params.row.endDate) + " days left"}
+                        </p>
+                     ) : (
+                        <p className="warningRed">Out of Date</p>
+                     )
+                  ) : params.row.orderStatus === "Processing" ||
+                    params.row.orderStatus === "Confirm" ? (
+                     <p className="waitAndGoing">Wait to pick up</p>
+                  ) : params.row.orderStatus === "Success" ? (
+                     <p className="finishOrder">Finished</p>
+                  ) : (
+                     <p className="warningRed">Cancel</p>
+                  )}
+               </div>
             );
          },
       },
       {
          field: "paymentType",
          headerName: "Payment Type",
-         flex: 1,
-         minWidth: 110,
+         width: 120,
          renderCell: params => {
             return (
                <>
@@ -115,8 +192,7 @@ const columnsOrder = (handleDelete, disabledButton = false) => {
       {
          field: "paymentStatus",
          headerName: "Payment Status",
-         flex: 1,
-         minWidth: 120,
+         width: 120,
          renderCell: params => {
             return (
                <>
@@ -130,8 +206,7 @@ const columnsOrder = (handleDelete, disabledButton = false) => {
       {
          field: "orderStatus",
          headerName: "Order Status",
-         flex: 1,
-         minWidth: 100,
+         width: 120,
          renderCell: params => {
             return (
                <>
@@ -145,10 +220,30 @@ const columnsOrder = (handleDelete, disabledButton = false) => {
       {
          field: "action",
          headerName: "Action",
-         width: 150,
+         width: 200,
          renderCell: params => {
             return (
                <div className="cellAction">
+                  <div
+                     className={
+                        params.row.orderStatus === "Success" ||
+                        params.row.orderStatus === "Cancel"
+                           ? "notificationButton disabledNotif"
+                           : "notificationButton"
+                     }
+                     onClick={() =>
+                        (params.row.orderStatus === "Confirm" ||
+                           params.row.orderStatus === "Going" ||
+                           params.row.orderStatus === "Processing") &&
+                        handleOpen(
+                           params.row.fromDate,
+                           params.row.endDate,
+                           params.row.userId,
+                           params.id,
+                        )
+                     }>
+                     <SmsFailedIcon style={{ fontSize: "17px" }} />
+                  </div>
                   <Link
                      to={`/orders/${params.id}`}
                      style={{ textDecoration: "none" }}>

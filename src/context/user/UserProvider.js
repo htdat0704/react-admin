@@ -175,7 +175,6 @@ function UserProvider({ children }) {
       if (localStorage["auth-token"]) {
          setAuthToken(localStorage["auth-token"]);
       }
-      console.log(dataDelete);
       try {
          const response = await axios.delete(
             `${linkURL}/user/notifications/delete`,

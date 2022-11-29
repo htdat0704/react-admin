@@ -15,6 +15,8 @@ import {
    deleteOrderFail,
    deleteOrderSuccess,
    setNullAlert,
+   addNotificationFail,
+   addNotificationSuccess,
 } from "./reducer/oderAction";
 
 function OrderProvider({ children }) {
@@ -85,6 +87,22 @@ function OrderProvider({ children }) {
       }, 100);
    };
 
+   const addNotification = async (userId, content, orderId) => {
+      if (localStorage["auth-token"]) {
+         setAuthToken(localStorage["auth-token"]);
+      }
+      try {
+         const response = await axios.post(
+            `${linkURL}/order/notification/add`,
+            { userId, content, orderId },
+         );
+
+         if (response.data.success) dispatch(addNotificationSuccess());
+      } catch (error) {
+         dispatch(addNotificationFail(error.response.data.message));
+      }
+   };
+
    const orderContext = {
       orderState,
       getAllOrders,
@@ -92,6 +110,7 @@ function OrderProvider({ children }) {
       updateOrder,
       deleteOrder,
       setNullMessageAndError,
+      addNotification,
    };
    return (
       <OrderContext.Provider value={orderContext}>

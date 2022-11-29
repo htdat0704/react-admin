@@ -12,6 +12,9 @@ export const DELETE_ORDER_FAIL = "delete_order_fail";
 
 export const SET_NULL_ALERT = "set_null_alert";
 
+export const ADD_NOTIFICATION_SUCCESS = "add_notification_success";
+export const ADD_NOTIFICATION_FAIL = "add_notification_fail";
+
 export const setNullAlert = payload => {
    return {
       type: SET_NULL_ALERT,
@@ -22,6 +25,20 @@ export const setNullAlert = payload => {
 export const deleteOrderSuccess = payload => {
    return {
       type: DELETE_ORDER_SUCCESS,
+      payload,
+   };
+};
+
+export const addNotificationSuccess = payload => {
+   return {
+      type: ADD_NOTIFICATION_SUCCESS,
+      payload,
+   };
+};
+
+export const addNotificationFail = payload => {
+   return {
+      type: ADD_NOTIFICATION_FAIL,
       payload,
    };
 };

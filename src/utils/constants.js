@@ -1,5 +1,5 @@
-export const linkURL = "https://htdat0704-server-senioir-project.onrender.com";
-// export const linkURL = "http://localhost:5000";
+// export const linkURL = "https://htdat0704-server-senioir-project.onrender.com";
+export const linkURL = "http://localhost:5000";
 
 export const optionsDriverLicense = [
    { label: "Scooter/Motorbike 50-175cm3", value: "A1" },
@@ -30,6 +30,51 @@ export const reduceFromObjToArray = value => {
       (previousValue, currentValue) => [...previousValue, currentValue.value],
       [],
    );
+};
+
+export const around24H = date => {
+   return (
+      Math.abs(
+         new Date(new Date(date).getTime() - 25200000) - new Date().getTime(),
+      ) /
+         3600000 <
+      24
+   );
+};
+
+export const dateMoreThanNow = date => {
+   return new Date(new Date(date).getTime() - 25200000) > new Date().getTime();
+};
+
+export const convertDateToVNI = date => {
+   return new Date(new Date(date).getTime() - 25200000).toLocaleDateString();
+};
+
+export const convertTimeToVNI = date => {
+   return new Date(new Date(date).getTime() - 25200000).toLocaleTimeString();
+};
+
+export const dateDiff = date => {
+   return Math.abs(
+      Math.floor(
+         (new Date(date).getTime() - 25200000 - new Date().getTime()) /
+            (24 * 3600 * 1000),
+      ),
+   );
+};
+
+export const convertHour = date => {
+   let hourMinute =
+      Math.abs(
+         new Date().getTime() -
+            new Date(new Date(date).getTime() - 25200000).getTime(),
+      ) / 3600000;
+   let hour = hourMinute.toFixed();
+   if (hour > hourMinute) {
+      hour -= 1;
+   }
+   let minute = ((hourMinute - hour) * 60).toFixed();
+   return hour + " hours " + minute + " minutes";
 };
 
 export const rowHeaderUserLastOrders = [

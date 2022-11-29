@@ -8,6 +8,12 @@ import {
    imageDefault,
    optionsOrderStatus,
    optionsPaymentType,
+   convertDateToVNI,
+   convertTimeToVNI,
+   around24H,
+   convertHour,
+   dateMoreThanNow,
+   dateDiff,
 } from "../../../utils/constants";
 import CustomizedSnackbarsSuccess from "../../alert/AlertSuccess";
 import CustomizedSnackbarsError from "../../alert/AlertError";
@@ -176,20 +182,115 @@ const DetailOrder = () => {
                         <span className="itemKey">From Date:</span>
                         <span className="itemValue">
                            {order.fromDate
-                              ? new Date(order.fromDate).toLocaleDateString() +
+                              ? convertDateToVNI(order.fromDate) +
                                 " " +
-                                new Date(order.fromDate).toLocaleTimeString()
+                                convertTimeToVNI(order.fromDate)
                               : ""}
+                           {order.orderStatus === "Processing" ||
+                           order.orderStatus === "Confirm" ? (
+                              around24H(order.fromDate) ? (
+                                 <p
+                                    className={
+                                       dateMoreThanNow(order.fromDate)
+                                          ? "leftGetVehicle"
+                                          : "lateReturnVehicle"
+                                    }>
+                                    {" "}
+                                    {convertHour(order.fromDate)}{" "}
+                                    {dateMoreThanNow(order.fromDate)
+                                       ? "left"
+                                       : "late"}
+                                 </p>
+                              ) : dateMoreThanNow(order.fromDate) ? (
+                                 <p className="dayLeft">
+                                    {dateDiff(order.fromDate) === 1
+                                       ? dateDiff(order.fromDate) + " day left "
+                                       : dateDiff(order.fromDate) +
+                                         " days left"}
+                                 </p>
+                              ) : (
+                                 <p
+                                    className="warningRed"
+                                    style={{ textAlign: "right" }}>
+                                    Out of Date
+                                 </p>
+                              )
+                           ) : order.orderStatus === "Going" ? (
+                              <p
+                                 className="waitAndGoing"
+                                 style={{ textAlign: "right" }}>
+                                 Going...
+                              </p>
+                           ) : order.orderStatus === "Success" ? (
+                              <p
+                                 className="finishOrder"
+                                 style={{ textAlign: "right" }}>
+                                 Finished
+                              </p>
+                           ) : (
+                              <p
+                                 className="warningRed"
+                                 style={{ textAlign: "right" }}>
+                                 Cancel
+                              </p>
+                           )}
                         </span>
                      </div>
                      <div className="detailItem">
                         <span className="itemKey">End Date:</span>
                         <span className="itemValue">
                            {order.endDate
-                              ? new Date(order.endDate).toLocaleDateString() +
+                              ? convertDateToVNI(order.endDate) +
                                 " " +
-                                new Date(order.endDate).toLocaleTimeString()
+                                convertTimeToVNI(order.endDate)
                               : ""}
+                           {order.orderStatus === "Going" ? (
+                              around24H(order.endDate) ? (
+                                 <p
+                                    className={
+                                       dateMoreThanNow(order.endDate)
+                                          ? "leftGetVehicle"
+                                          : "lateReturnVehicle"
+                                    }>
+                                    {" "}
+                                    {convertHour(order.endDate)}{" "}
+                                    {dateMoreThanNow(order.endDate)
+                                       ? "left"
+                                       : "late"}
+                                 </p>
+                              ) : dateMoreThanNow(order.endDate) ? (
+                                 <p className="dayLeft">
+                                    {dateDiff(order.endDate) === 1
+                                       ? dateDiff(order.endDate) + " day left "
+                                       : dateDiff(order.endDate) + " days left"}
+                                 </p>
+                              ) : (
+                                 <p
+                                    className="warningRed"
+                                    style={{ textAlign: "right" }}>
+                                    Out of Date
+                                 </p>
+                              )
+                           ) : order.orderStatus === "Processing" ||
+                             order.orderStatus === "Confirm" ? (
+                              <p
+                                 className="waitAndGoing"
+                                 style={{ textAlign: "right" }}>
+                                 Wait to pick up
+                              </p>
+                           ) : order.orderStatus === "Success" ? (
+                              <p
+                                 className="finishOrder"
+                                 style={{ textAlign: "right" }}>
+                                 Finished
+                              </p>
+                           ) : (
+                              <p
+                                 className="warningRed"
+                                 style={{ textAlign: "right" }}>
+                                 Cancel
+                              </p>
+                           )}
                         </span>
                      </div>
                   </div>

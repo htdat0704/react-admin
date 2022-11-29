@@ -8,6 +8,8 @@ import {
    UPDATE_ORDER_FAIL,
    UPDATE_ORDER_SUCCESS,
    SET_NULL_ALERT,
+   ADD_NOTIFICATION_FAIL,
+   ADD_NOTIFICATION_SUCCESS,
 } from "./oderAction";
 
 export const orderInit = {
@@ -20,6 +22,12 @@ export const orderInit = {
 export const orderReducer = (state, action) => {
    const { type, payload } = action;
    switch (type) {
+      case ADD_NOTIFICATION_SUCCESS:
+         return {
+            ...state,
+            message: "Send Notification success",
+            error: "",
+         };
       case SET_NULL_ALERT:
          return {
             ...state,
@@ -64,6 +72,7 @@ export const orderReducer = (state, action) => {
       case GET_ORDERS_FAIL:
       case DELETE_ORDER_FAIL:
       case UPDATE_ORDER_FAIL:
+      case ADD_NOTIFICATION_FAIL:
          return {
             ...state,
             error: state.error === payload ? payload + "!" : payload,
