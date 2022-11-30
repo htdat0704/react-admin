@@ -8,7 +8,6 @@ import Button from "@mui/material/Button";
 import { imageDefault, typeNews } from "../../../utils/constants";
 import columnsNews from "../../../utils/columnsNews";
 import ModelCreateNews from "../ModelCreateNews/ModelCreateNews";
-import ModelMap from "../ModelCreateNews/ModelMap";
 
 import "./dataTableNews.scss";
 
