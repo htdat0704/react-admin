@@ -90,6 +90,16 @@ function App() {
                      }
                   />
                </Route>
+               <Route path="news">
+                  <Route
+                     index
+                     element={
+                        <ProtectedRoute role={user.role}>
+                           <List page={"news"} />
+                        </ProtectedRoute>
+                     }
+                  />
+               </Route>
                <Route path="features">
                   <Route
                      index

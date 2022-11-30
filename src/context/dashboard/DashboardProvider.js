@@ -27,7 +27,6 @@ function DashboardProvider({ children }) {
          const response = await axios.get(
             `${linkURL}/order/dashboard/revenue/${year}`,
          );
-         console.log(response);
          if (response.data.success)
             dispatch(getRevenueSuccess(response.data.revenue));
       } catch (error) {
@@ -44,7 +43,6 @@ function DashboardProvider({ children }) {
          const response = await axios.get(
             `${linkURL}/order/dashboard/lastOrders`,
          );
-         console.log(response);
          if (response.data.success)
             dispatch(getLastOrdersSuccess(response.data.orders));
       } catch (error) {
@@ -58,7 +56,7 @@ function DashboardProvider({ children }) {
       }
       try {
          const response = await axios.get(`${linkURL}/user/dashboard/widgets`);
-         console.log(response);
+
          if (response.data.success) dispatch(getWidgetSuccess(response.data));
       } catch (error) {
          dispatch(getWidgetFail(error.response.data.message));

@@ -1,0 +1,85 @@
+.datatableNews {
+   height: 800px;
+   padding: 20px;
+
+   .datatableTitle {
+      width: 100%;
+      font-size: 24px;
+      color: gray;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .link {
+         text-decoration: none;
+         color: green;
+         font-size: 18px;
+         font-weight: 400;
+         border: 1px solid green;
+         padding: 8px;
+         border-radius: 5px;
+         cursor: pointer;
+      }
+   }
+
+   .MuiDataGrid-cell {
+      font-size: 16px;
+
+      .MuiFormControl-root {
+         border: white !important;
+      }
+   }
+
+   .cellWithImgNews {
+      align-items: center;
+      text-align: center;
+      width: 100%;
+      .cellImg {
+         align-items: center;
+         width: 200px;
+         height: 200px;
+         border-radius: 4%;
+         object-fit: cover;
+      }
+   }
+
+   .cellActionNews {
+      display: block;
+
+      .deleteButton {
+         font-size: 20px;
+         padding: 2px 5px;
+         border-radius: 5px;
+         color: crimson;
+         border: 1px dotted rgba(220, 20, 60, 0.726);
+         cursor: pointer;
+      }
+
+      .disabled {
+         cursor: context-menu;
+         background-color: rgba(128, 0, 128, 0.2);
+      }
+   }
+
+   .location {
+      padding: 8px;
+      border-radius: 4px;
+      background-color: #86aff181;
+      text-decoration: none;
+      text-align: center;
+   }
+
+   .garage {
+      padding: 8px;
+      border-radius: 4px;
+      background-color: rgba(211, 206, 206, 0.637);
+      text-decoration: none;
+   }
+}
+
+@media screen and (max-width: 600px) {
+   .datatableNews .datatableTitle span {
+      display: none;
+   }
+}

@@ -8,6 +8,7 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import RateReviewIcon from "@mui/icons-material/RateReview";
 import ConstructionIcon from "@mui/icons-material/Construction";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
+import FiberNewIcon from "@mui/icons-material/FiberNew";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/auth/AuthContext";
 
@@ -74,6 +75,12 @@ const Sidebar = () => {
                   <li className="sidebarLi">
                      <NotificationsNoneIcon className="icon" />
                      <span>Notifications</span>
+                  </li>
+               </Link>
+               <Link to="/news" style={{ textDecoration: "none" }}>
+                  <li className="sidebarLi">
+                     <FiberNewIcon className="icon" />
+                     <span>News</span>
                   </li>
                </Link>
                <p className="title">USER</p>

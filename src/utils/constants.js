@@ -25,6 +25,12 @@ export const optionsColor = [
    { label: "Grey 🔘", value: "grey" },
 ];
 
+export const typeNews = [
+   { label: "Festival", value: "Festival" },
+   { label: "Famous Location", value: "Famous Location" },
+   { label: "Event", value: "Event" },
+];
+
 export const reduceFromObjToArray = value => {
    return value.reduce(
       (previousValue, currentValue) => [...previousValue, currentValue.value],
@@ -190,6 +196,14 @@ export const optionsNotificationType = [
    "Add",
    "News",
 ];
+
+export const defaultMaps = {
+   center: {
+      lat: 16.019139359682722,
+      lng: 108.22899311151245,
+   },
+   zoom: 15,
+};
 
 export const optionsPaymentType = ["CASH", "MOMO", "VNPAY"];
 

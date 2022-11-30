@@ -8,7 +8,7 @@ import DatatableOrder from "../../components/order/datatable/DatatableOrder";
 import DataTableFeature from "../../components/feature/dataTable/DataTableFeature";
 import DatatableReview from "../../components/review/datatable/DatatableReview";
 import DataTableNotification from "../../components/notification/datatable/DataTableNotification";
-import Home from "../home/Home";
+import DataTableNews from "../../components/news/dataTable/DataTableNews";
 
 import "./list.scss";
 
@@ -32,8 +32,10 @@ const List = ({ page }) => {
                <DataTableFeature />
             ) : page === "notification" ? (
                <DataTableNotification />
+            ) : page === "news" ? (
+               <DataTableNews />
             ) : (
-               <Home />
+               <DatatableVehicle />
             )}
          </div>
       </div>

@@ -10,6 +10,7 @@ import RateReviewIcon from "@mui/icons-material/RateReview";
 import ConstructionIcon from "@mui/icons-material/Construction";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import DashboardIcon from "@mui/icons-material/Dashboard";
+import FiberNewIcon from "@mui/icons-material/FiberNew";
 import { Link } from "react-router-dom";
 import "./navbar.scss";
 
@@ -101,6 +102,12 @@ const Navbar = () => {
                <li className="li">
                   <NotificationsNoneIcon className="icon" />
                   <span>Notifications</span>
+               </li>
+            </Link>
+            <Link to="/news" style={{ textDecoration: "none" }}>
+               <li className="li">
+                  <FiberNewIcon className="icon" />
+                  <span>News</span>
                </li>
             </Link>
          </ul>
