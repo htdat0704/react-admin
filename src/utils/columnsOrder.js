@@ -14,6 +14,7 @@ import SmsFailedIcon from "@mui/icons-material/SmsFailed";
 const columnsOrder = (handleDelete, disabledButton = false, handleOpen) => {
    return [
       { field: "id", headerName: "ID", hide: true },
+      { field: "customerName", headerName: "Customer", hide: true },
       {
          field: "name",
          headerName: "Customer Name",

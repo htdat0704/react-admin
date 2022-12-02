@@ -20,7 +20,7 @@ const style = {
    textAlign: "center",
 };
 
-const ModelMap = ({ openMap, setOpenMap, formCraete, setFormCreate }) => {
+const ModelMap = ({ openMap, setOpenMap, formCreate, setFormCreate }) => {
    const handleClose = () => {
       setOpenMap(false);
    };
@@ -40,7 +40,7 @@ const ModelMap = ({ openMap, setOpenMap, formCraete, setFormCreate }) => {
                      defaultZoom={defaultMaps.zoom}
                      onClick={ev => {
                         setFormCreate({
-                           ...formCraete,
+                           ...formCreate,
                            longitude: ev.lng,
                            latitude: ev.lat,
                         });

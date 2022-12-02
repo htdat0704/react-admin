@@ -5,7 +5,7 @@ import LoadingModel from "../../loading/LoadingModel";
 import CustomizedSnackbarsSuccess from "../../alert/AlertSuccess";
 import CustomizedSnackbarsError from "../../alert/AlertError";
 import Button from "@mui/material/Button";
-import { imageDefault, typeNews } from "../../../utils/constants";
+import { imageDefault, typeNews, defaultMaps } from "../../../utils/constants";
 import columnsNews from "../../../utils/columnsNews";
 import ModelCreateNews from "../ModelCreateNews/ModelCreateNews";
 
@@ -19,8 +19,8 @@ const DataTableNews = () => {
    const [imagePreview, setImagePreview] = useState(imageDefault);
    const [formCreate, setFormCreate] = useState({
       title: "",
-      longitude: "",
-      latitude: "",
+      longitude: defaultMaps.center.lng,
+      latitude: defaultMaps.center.lat,
       typeNew: typeNews[0].value,
       isUpdateImage: false,
       image: "",
@@ -52,11 +52,14 @@ const DataTableNews = () => {
       if (result) {
          setFormCreate({
             title: "",
-            location: "",
-            type: typeNews[0].value,
+            longitude: "",
+            latitude: "",
+            description: "",
+            typeNew: typeNews[0].value,
             isUpdateImage: false,
             image: "",
          });
+         setImagePreview(imageDefault);
       }
    };
 

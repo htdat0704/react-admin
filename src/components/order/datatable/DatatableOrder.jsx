@@ -84,6 +84,7 @@ const DatatableOrder = () => {
          rows.push({
             id: order._id,
             name: order.user ? order.user.name : "",
+            customerName: order.user ? order.user.name : "",
             phoneNumber: order.user ? order.user.phoneNumber : "",
             userId: order.user ? order.user._id : "",
             pickUpLocation: order.pickUpLocation,
@@ -155,12 +156,16 @@ const DatatableOrder = () => {
                </form>
             </div>
             <div style={{ height: "100%", width: "100%" }}>
-               <DataGrid
-                  rows={rows}
-                  columns={columns}
-                  pageSize={15}
-                  rowsPerPageOptions={[8]}
-               />
+               {orders.length === 0 ? (
+                  <h1 className="noOrder">List is Empty!</h1>
+               ) : (
+                  <DataGrid
+                     rows={rows}
+                     columns={columns}
+                     pageSize={15}
+                     rowsPerPageOptions={[8]}
+                  />
+               )}
             </div>
          </div>
          <ModelAddNotification

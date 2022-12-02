@@ -27,7 +27,6 @@ const columnsNews = (handleDelete, disabledButton = false) => {
          field: "title",
          headerName: "Title",
          flex: 1,
-         minWidth: 260,
          renderCell: params => {
             return (
                <div
@@ -37,6 +36,26 @@ const columnsNews = (handleDelete, disabledButton = false) => {
                      width: "100%",
                   }}>
                   <p style={{ textAlign: "center" }}>{params.row.title}</p>
+               </div>
+            );
+         },
+      },
+
+      {
+         headerAlign: "center",
+         field: "type",
+         headerName: "Type",
+         flex: 1,
+         renderCell: params => {
+            return (
+               <div
+                  className="cellTitle"
+                  style={{
+                     width: "100%",
+                     fontStyle: "italic",
+                     fontWeight: "bold",
+                  }}>
+                  <p style={{ textAlign: "center" }}>{params.row.type}</p>
                </div>
             );
          },
@@ -63,7 +82,6 @@ const columnsNews = (handleDelete, disabledButton = false) => {
          field: "location",
          headerName: "Location",
          headerAlign: "center",
-         minWidth: 260,
          renderCell: params => {
             return (
                <div
@@ -90,26 +108,6 @@ const columnsNews = (handleDelete, disabledButton = false) => {
                         <span className="garage">At garage</span>
                      )}
                   </p>
-               </div>
-            );
-         },
-      },
-      {
-         headerAlign: "center",
-         field: "type",
-         headerName: "Type",
-         flex: 1,
-         minWidth: 260,
-         renderCell: params => {
-            return (
-               <div
-                  className="cellTitle"
-                  style={{
-                     width: "100%",
-                     fontStyle: "italic",
-                     fontWeight: "bold",
-                  }}>
-                  <p style={{ textAlign: "center" }}>{params.row.type}</p>
                </div>
             );
          },

@@ -43,7 +43,10 @@ export const orderReducer = (state, action) => {
          return {
             ...state,
             orders: payload,
-            message: "Get All Orders Success",
+            message:
+               payload.length === 0
+                  ? "List is Empty!"
+                  : "Get All Orders Success",
          };
       case UPDATE_ORDER_SUCCESS:
          return {

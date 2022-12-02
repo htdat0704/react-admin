@@ -77,7 +77,9 @@ const ModelAddNotification = ({
                     "Your order should return in the next " +
                        convertHour(endDate),
                  )
-               : setMessage("Return order " + convertHour(endDate) + " late");
+               : setMessage(
+                    "Your return order was " + convertHour(endDate) + " late",
+                 );
          } else if (dateMoreThanNow(endDate)) {
             dateDiff(endDate) === 1
                ? setMessage(
@@ -95,7 +97,6 @@ const ModelAddNotification = ({
          }
       }
    };
-   console.log(select);
    return (
       <div>
          <Modal

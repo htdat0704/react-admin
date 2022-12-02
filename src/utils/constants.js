@@ -1,5 +1,5 @@
-// export const linkURL = "https://htdat0704-server-senioir-project.onrender.com";
-export const linkURL = "http://localhost:5000";
+export const linkURL = "https://htdat0704-server-senioir-project.onrender.com";
+// export const linkURL = "http://localhost:5000";
 
 export const optionsDriverLicense = [
    { label: "Scooter/Motorbike 50-175cm3", value: "A1" },
@@ -29,6 +29,7 @@ export const typeNews = [
    { label: "Festival", value: "Festival" },
    { label: "Famous Location", value: "Famous Location" },
    { label: "Event", value: "Event" },
+   { label: "Vehicle", value: "Vehicle" },
 ];
 
 export const reduceFromObjToArray = value => {
@@ -161,6 +162,11 @@ export const kindOrders = [
    { label: "Orders will pick up the vehicle today", value: "fromDate" },
    { label: "Orders will return the vehicle today", value: "endDate" },
    { label: "Orders create today", value: "today" },
+   { label: "Orders wait to confirm", value: "waitToConfirm" },
+   { label: "Orders wait to pick Up", value: "waitToPickUp" },
+   { label: "Orders wait to return", value: "waitToReturn" },
+   { label: "Orders Success", value: "success" },
+   { label: "Orders Cancel", value: "cancel" },
    { label: "All", value: "all" },
 ];
 
