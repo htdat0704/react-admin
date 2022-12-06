@@ -24,7 +24,7 @@ const columnsReview = (handleDelete, disabledButton = false) => {
       {
          field: "nameUser",
          headerName: "User Name",
-         minWidth: 80,
+         minWidth: 120,
          renderCell: params => {
             return (
                <Link
