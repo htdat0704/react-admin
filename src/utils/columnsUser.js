@@ -38,7 +38,7 @@ const columnsUser = (handleDelete, disabledButton = false) => {
                <>
                   {params.row.phoneNumber || (
                      <p style={{ color: "yellowgreen", fontStyle: "italic" }}>
-                        Not Updated Yet
+                        NULL
                      </p>
                   )}
                </>

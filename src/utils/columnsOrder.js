@@ -29,7 +29,7 @@ const columnsOrder = (handleDelete, disabledButton = false, handleOpen) => {
                   {new Date(params.row.createdAt).toLocaleDateString() ===
                   new Date().toLocaleDateString() ? (
                      <div className="newOrder">
-                        <Chip label="New" size="small" color="error" />
+                        {/* <Chip label="New" size="small" color="error" /> */}
                         <div>
                            <p>{params.row.name}</p>
                            <p>{params.row.phoneNumber}</p>
