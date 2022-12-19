@@ -37,9 +37,7 @@ const columnsUser = (handleDelete, disabledButton = false) => {
             return (
                <>
                   {params.row.phoneNumber || (
-                     <p style={{ color: "yellowgreen", fontStyle: "italic" }}>
-                        NULL
-                     </p>
+                     <p style={{ color: "gray", fontStyle: "italic" }}>NULL</p>
                   )}
                </>
             );
@@ -54,9 +52,7 @@ const columnsUser = (handleDelete, disabledButton = false) => {
             return (
                <>
                   {params.row.age || (
-                     <p style={{ color: "yellowgreen", fontStyle: "italic" }}>
-                        Not Updated Yet
-                     </p>
+                     <p style={{ color: "gray", fontStyle: "italic" }}>NULL</p>
                   )}
                </>
             );
@@ -71,9 +67,7 @@ const columnsUser = (handleDelete, disabledButton = false) => {
             return (
                <>
                   {params.row.country || (
-                     <p style={{ color: "yellowgreen", fontStyle: "italic" }}>
-                        Not Updated Yet
-                     </p>
+                     <p style={{ color: "gray", fontStyle: "italic" }}>NULL</p>
                   )}
                </>
             );
@@ -88,9 +82,7 @@ const columnsUser = (handleDelete, disabledButton = false) => {
             return (
                <>
                   {params.row.driverLicense || (
-                     <p style={{ color: "yellowgreen", fontStyle: "italic" }}>
-                        Not Updated Yet
-                     </p>
+                     <p style={{ color: "gray", fontStyle: "italic" }}>NULL</p>
                   )}
                </>
             );
