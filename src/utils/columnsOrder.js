@@ -18,7 +18,7 @@ const columnsOrder = (handleDelete, disabledButton = false, handleOpen) => {
       {
          field: "name",
          headerName: "Customer Name",
-         minWidth: 120,
+         minWidth: 140,
          flex: 1,
          renderCell: params => {
             return (
@@ -48,7 +48,7 @@ const columnsOrder = (handleDelete, disabledButton = false, handleOpen) => {
       {
          field: "pickUpLocation",
          headerName: "Pick up Location",
-         minWidth: 140,
+         minWidth: 120,
          renderCell: params => {
             return (
                <>
@@ -73,7 +73,7 @@ const columnsOrder = (handleDelete, disabledButton = false, handleOpen) => {
       {
          field: "facility",
          headerName: "Facility",
-         minWidth: 150,
+         minWidth: 120,
       },
       {
          field: "totalPrice",
