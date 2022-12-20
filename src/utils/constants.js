@@ -1,5 +1,5 @@
-export const linkURL = "https://htdat0704-server-senioir-project.onrender.com";
-// export const linkURL = "http://localhost:5000";
+// export const linkURL = "https://htdat0704-server-senioir-project.onrender.com";
+export const linkURL = "http://localhost:5000";
 
 export const optionsDriverLicense = [
    { label: "Scooter/Motorbike 50-175cm3", value: "A1" },
@@ -12,17 +12,17 @@ export const optionsDriverLicense = [
 ];
 
 export const optionsColor = [
-   { label: "Yellow 🍋", value: "yellow" },
-   { label: "Orange 🥭", value: "orange" },
-   { label: "Red 🍓", value: "red" },
-   { label: "White ⚪", value: "white" },
-   { label: "Black 🌑", value: "black" },
-   { label: "Brown 🍩", value: "brown" },
-   { label: "Blue 💙", value: "blue" },
-   { label: "Green 🟢", value: "green" },
-   { label: "Purple 💜", value: "purple" },
-   { label: "Pink 🌸", value: "pink" },
-   { label: "Grey 🔘", value: "grey" },
+   { label: "Yellow", value: "yellow" },
+   { label: "Orange", value: "orange" },
+   { label: "Red", value: "red" },
+   { label: "White", value: "white" },
+   { label: "Black", value: "black" },
+   { label: "Brown", value: "brown" },
+   { label: "Blue", value: "blue" },
+   { label: "Green", value: "green" },
+   { label: "Purple", value: "purple" },
+   { label: "Pink", value: "pink" },
+   { label: "Grey", value: "grey" },
 ];
 
 export const typeNews = [

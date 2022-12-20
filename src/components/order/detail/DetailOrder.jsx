@@ -2,8 +2,6 @@ import React, { useEffect, useContext, useState } from "react";
 import { OrderContext } from "../../../context/order/OrderContext";
 import { useParams } from "react-router-dom";
 import LoadingModel from "../../loading/LoadingModel";
-import FeedIcon from "@mui/icons-material/Feed";
-import AppRegistrationIcon from "@mui/icons-material/AppRegistration";
 import {
    imageDefault,
    optionsOrderStatus,
@@ -113,7 +111,6 @@ const DetailOrder = () => {
             <div className="left">
                <div className="titleOrder">
                   <h1>Information Order</h1>
-                  <FeedIcon className="svg" />
                </div>
                <div className="item">
                   <div className="details">
@@ -194,7 +191,8 @@ const DetailOrder = () => {
                                        dateMoreThanNow(order.fromDate)
                                           ? "leftGetVehicle"
                                           : "lateReturnVehicle"
-                                    }>
+                                    }
+                                    style={{ textAlign: "right" }}>
                                     {" "}
                                     {convertHour(order.fromDate)}{" "}
                                     {dateMoreThanNow(order.fromDate)
@@ -202,11 +200,10 @@ const DetailOrder = () => {
                                        : "late"}
                                  </p>
                               ) : dateMoreThanNow(order.fromDate) ? (
-                                 <p className="dayLeft">
-                                    {dateDiff(order.fromDate) === 1
-                                       ? dateDiff(order.fromDate) + " day left "
-                                       : dateDiff(order.fromDate) +
-                                         " days left"}
+                                 <p
+                                    className="dayLeft"
+                                    style={{ textAlign: "right" }}>
+                                    {dateDiff(order.fromDate) + " days left"}
                                  </p>
                               ) : (
                                  <p
@@ -259,10 +256,10 @@ const DetailOrder = () => {
                                        : "late"}
                                  </p>
                               ) : dateMoreThanNow(order.endDate) ? (
-                                 <p className="dayLeft">
-                                    {dateDiff(order.endDate) === 1
-                                       ? dateDiff(order.endDate) + " day left "
-                                       : dateDiff(order.endDate) + " days left"}
+                                 <p
+                                    className="dayLeft"
+                                    style={{ textAlign: "right" }}>
+                                    {dateDiff(order.endDate) + " days left"}
                                  </p>
                               ) : (
                                  <p
@@ -297,7 +294,6 @@ const DetailOrder = () => {
                </div>
             </div>
             <div className="right">
-               <AppRegistrationIcon className="svg" />
                <h1 className="titleOrderUpdate">Update Order</h1>
                <form id="formUpdateOrder" onSubmit={handleupdate}>
                   <div className="formInputOF">
